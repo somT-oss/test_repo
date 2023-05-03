@@ -20,7 +20,7 @@ jobs:
       run: pytest
 
     - name: Upload file to S3
-    - uses: keithweaver/aws-s3-github-action@v1.0.0
+      uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
         command: cp
         source: ./main.py
