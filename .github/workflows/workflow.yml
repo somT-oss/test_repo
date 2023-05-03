@@ -1,4 +1,4 @@
-name: Create File
+name: Push to S3
 
 on: 
   push:
