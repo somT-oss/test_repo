@@ -23,11 +23,11 @@ jobs:
     - uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
         command: cp
-        source: ./new.txt
+        source: ./main.py
         destination: s3://${{ secrets.AWS_BUCKET_NAME }}/
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws_region: us-east-2
+        aws_region: us-east-1
        
 
 
