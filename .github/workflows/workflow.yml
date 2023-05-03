@@ -1,0 +1,23 @@
+name: Create File
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  builds: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install pip
+      run: pip install requirements.txt
+
+    - name: run python script
+      run: python3 main.py
+    
+    - name: run python test
+      run: pytest
+
+    
+       
