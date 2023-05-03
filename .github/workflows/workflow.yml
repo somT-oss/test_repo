@@ -19,13 +19,13 @@ jobs:
     - name: run python test
       run: pytest
 
-    - name: Upload file to S3
-    - uses: keithweaver/aws-s3-github-action@v1.0.0
-      with:
-        command: cp
-        source: ./new_test.txt
-        destination: s3://${{ secrets.AWS_BUCKET_NAME }}/
-        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws_region: us-east-1
+    # - name: Upload file to S3
+    # - uses: keithweaver/aws-s3-github-action@v1.0.0
+    #   with:
+    #     command: cp
+    #     source: ./new_test.txt
+    #     destination: s3://${{ secrets.AWS_BUCKET_NAME }}/
+    #     aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #     aws_region: us-east-1
        
