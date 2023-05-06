@@ -1,15 +1,14 @@
 name: GitHub Actions
 
 on: 
-  push:
-    branches:
-      - main
+  issues:
+    types: [opened]
 
 jobs:
   builds: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-      with:
-        ref: feature
+    - name: Echo Message
+      run: echo "New issue has been opened"
          
