@@ -10,9 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Echo GitHub Actions
+    - name: Run test
       run: |
-        a=5 \
-        b=5 \
-        echo "expr $a + $b"
+        date > generated.txt
+        echo generated.txt
          
