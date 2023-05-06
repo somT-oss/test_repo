@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Echo Build
-      run: sleep 10 && "Build lasted for 10 seconds"
+      run: sleep 10 && echo "Build lasted for 10 seconds"
   
   post-build:
     runs-on: ubuntu-latest
