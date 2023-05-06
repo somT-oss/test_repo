@@ -9,9 +9,7 @@ jobs:
   builds: 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run test
-      run: |
-        date > generated.txt
-        echo generated.txt
+    - uses: actions/checkout@v3
+      with:
+        ref: feature
          
