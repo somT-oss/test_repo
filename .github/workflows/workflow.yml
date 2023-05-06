@@ -1,4 +1,4 @@
-name: Push to S3
+name: GitHub Actions
 
 on: 
   push:
@@ -10,24 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install pip
-      run: pip install -r requirements.txt
-
-    - name: run python script
-      run: python3 main.py
-    
-    - name: run python test
-      run: pytest
-
-    - name: Upload file to S3
-      uses: keithweaver/aws-s3-github-action@v1.0.0
-      with:
-        command: cp
-        source: ./new.txt
-        destination: s3://${{ secrets.AWS_BUCKET_NAME }}/
-        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws_region: us-east-1
-       
-
-
+    - name: Echo GitHub Actions
+      run: echo "Hello GitHub Actions"
