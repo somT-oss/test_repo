@@ -11,4 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Echo GitHub Actions
-      run: echo "Hello GitHub Actions"
+      run: |
+        a=5 \
+        b=5 \
+        echo "expr $a + $b"
+         
