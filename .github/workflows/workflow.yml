@@ -1,14 +1,31 @@
 name: GitHub Actions
 
 on: 
-  issues:
-    types: [opened]
+  push:
+    branches:
+      - main
 
 jobs:
-  builds: 
+  pre-build: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Echo pre-build
+        run: echo "This is the pre-build"
+
+  build: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Echo Message
-      run: echo "New issue has been opened"
-         
+    - name: Echo Build
+      run: sleep 10 && "Build lasted for 10 seconds"
+  
+  post-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Echo Post Build
+      run: echo "Build ended on:" ` date`
+
+  
+  
