@@ -4,28 +4,37 @@ on:
   push:
     branches:
       - main
+  
+  issues:
+    types:
+      - opened
+
+env:
+  DAY_OF_THE_WEEK: Monday
+  FIRST_NAME: John
+  Greeting: Hello
 
 jobs:
-  pre-build: 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Echo pre-build
-        run: echo "This is the pre-build"
-
   build: 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Echo Build
-      run: sleep 10 && "Build lasted for 10 seconds"
+      - uses: actions/checkout@v3
+      - name: Greet the user
+        run: echo "$Greeting $FIRST_NAME. It's $DAY_OF_THE_WEEK"
+
+  # build: 
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Echo Build
+  #     run: sleep 10 && "Build lasted for 10 seconds"
   
-  post-build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Echo Post Build
-      run: echo "Build ended on:" ` date`
+  # post-build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Echo Post Build
+  #     run: echo "Build ended on:" ` date`
 
   
   
