@@ -9,10 +9,6 @@ on:
     types:
       - opened
     
-env:
-  greeting: ${{ secrets.GREETING }}
-  first_name: ${{ secrets.FIRST_NAME }}
-  day_of_the_week: ${{ secrets.DAY_OF_THE_WEEK }}
 
 jobs:
   builds: 
@@ -20,7 +16,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Greet the user
-      run: echo "$greeting $first_name. It's $day_of_the_week"
-    
-    - name: run python script
-      run: hello world
+      run: |
+        echo "$greeting $first_name. It's $day_of_the_week"
+
+      env:
+        greeting: ${{ secrets.GREETING }}
+        first_name: ${{ secrets.FIRST_NAME }}
+        day_of_the_week: ${{ secrets.DAY_OF_THE_WEEK }}
+      
