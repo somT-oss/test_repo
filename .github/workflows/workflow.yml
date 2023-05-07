@@ -8,33 +8,19 @@ on:
   issues:
     types:
       - opened
-
+    
 env:
-  DAY_OF_THE_WEEK: Monday
-  FIRST_NAME: John
-  Greeting: Hello
+  greeting: ${{ secrets.GREETING }}
+  first_name: ${{ secrets.FIRST_NAME }}
+  day_of_the_week: ${{ secrets.DAY_OF_THE_WEEK }}
 
 jobs:
-  build: 
+  builds: 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Greet the user
-        run: echo "$Greeting $FIRST_NAME. It's $DAY_OF_THE_WEEK"
-
-  # build: 
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - name: Echo Build
-  #     run: sleep 10 && "Build lasted for 10 seconds"
-  
-  # post-build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - name: Echo Post Build
-  #     run: echo "Build ended on:" ` date`
-
-  
-  
+    - uses: actions/checkout@v3
+    - name: Greet the user
+      run: echo "$greeting $first_name. It's $day_of_the_week"
+    
+    - name: run python script
+      run: hello world
